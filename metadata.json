@@ -1,0 +1,5 @@
+{
+  "name": "ATS Resume Builder",
+  "description": "A professional ATS-friendly resume builder. Import/Export JSON and generate tailored PDFs.",
+  "requestFramePermissions": []
+}

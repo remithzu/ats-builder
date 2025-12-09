@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:80"
+    container_name: ats_builder_web
+    restart: unless-stopped
