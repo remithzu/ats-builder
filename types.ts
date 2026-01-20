@@ -7,9 +7,9 @@ export interface WorkExperience {
   endDate: string;
   current: boolean;
   location: string;
-  description: string; // Bullet points separated by newlines or markdown
-  employmentType?: string; // 'Full-time', 'Part-time', 'Contract', 'Internship', 'Freelance'
-  locationType?: string; // 'On-site', 'Remote', 'Hybrid'
+  description: string;
+  employmentType?: string;
+  locationType?: string;
 }
 
 export interface Education {
@@ -33,9 +33,9 @@ export interface Project {
 
 export interface CustomSectionItem {
   id: string;
-  name: string; // The label or Main Title (e.g. "Spanish" or "Volunteering Role")
-  description: string; // The value or Description
-  subtitle?: string; // Optional: Organization, Issuer, etc.
+  name: string;
+  description: string;
+  subtitle?: string;
   startDate?: string;
   endDate?: string;
   location?: string;
@@ -51,23 +51,43 @@ export interface CustomSection {
   items: CustomSectionItem[];
 }
 
+export interface PersonalInfo {
+  fullName: string;
+  jobTitle?: string;
+  email: string;
+  phone: string;
+  location: string;
+  linkedin?: string;
+  github?: string;
+  portfolio?: string;
+  summary: string;
+}
+
 export interface ResumeData {
-  personalInfo: {
-    fullName: string;
-    jobTitle?: string;
-    email: string;
-    phone: string;
-    location: string;
-    linkedin?: string;
-    github?: string;
-    portfolio?: string;
-    summary: string;
-  };
+  personalInfo: PersonalInfo;
   experience: WorkExperience[];
   education: Education[];
   skills: string[];
   projects: Project[];
   customSections: CustomSection[];
+}
+
+export interface CoverLetterData {
+  recipient: {
+    name: string;
+    title: string;
+    company: string;
+    address: string;
+  };
+  date: string;
+  salutation: string;
+  paragraphs: string[];
+  closing: string;
+}
+
+export interface AppData {
+  resume: ResumeData;
+  coverLetter: CoverLetterData;
 }
 
 export type TemplateId = 'classic' | 'modern' | 'minimal';
@@ -81,6 +101,6 @@ export interface Template {
 export interface ResumeVersion {
   id: string;
   timestamp: number;
-  data: ResumeData;
+  data: AppData;
   label: string;
 }
